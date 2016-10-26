@@ -7,8 +7,15 @@
 
         
 		<meta charset=”utf8”>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">	
+		<meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+		<script src="components/loader.js"></script>
+		<script src="lib/onsenui/js/onsenui.min.js"></script>
+
+		<link rel="stylesheet" href="components/loader.css">
+		<link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+		<link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+		<link rel="stylesheet" href="css/style.css">
 		<title> Login Bank </title>
 
 
@@ -17,99 +24,118 @@
 
 <body>
 
-<div class="container-fluid" style="padding-top: 100px;padding-left: 100px;">
+<ons-page>
+	
+  <ons-toolbar>
+    	
+    	<div class="center">Login Bank</div>
 
-    <header>
-    </header>
+  </ons-toolbar>
 
-    	<!-- <div style="float: left;" > -->
-    	<div>
+  <div style="text-align: center; margin-top: 30px;">
 
-		<form method="POST"	action="http://localhost/App Consumos/logica.php?opcion=0" 
-			  class="form-horizontal">
+  	<form name="formulario" method="POST" action="http://localhost/App Consumos/logica.php?opcion=0">
+    
+	    <p>
+	    
+	      <ons-input id="userid" modifier="underbar" placeholder="Username" float></ons-input>
+	    
+	    </p>
+	    
+	    <p>
+	    
+	      <ons-input id="passid" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+	    
+	    </p>
 
-			
-			<div class="form-group">
-
-			<label for="inputEmail3" class="col-sm-2 control-label"> NumDocumento </label>
-
-				<div class="col-sm-10">
-				
-				<input style="width:500px" type = "Text" id="UserId" name="usuario" class="form-control" >
-
-				</div>	
-
-			</div>
-
-
-			<div class="form-group">
-
-			<label for="inputEmail3" class="col-sm-2 control-label"> Password</label>
-
-				<div class="col-sm-10">
-				
-				<input style="width:500px" type = "password" id = "PassId" name = "password" class="form-control" placeholder="Password"> 
-
-				</div>	
-
-			</div>
-
-			<div class="form-group">
-
-			<label for="inputEmail3" class="col-sm-2 control-label"> TipoDocumento </label>
-
-				<div class="col-sm-10">
-				
-					<select style="width:500px"  class="form-control" id = "TipoDocumento" 							name="TipoDocumento[]">
-						
-						<option value = 1  selected > Dni </option>
-						<option value = 5 > Carnet de Extranjeria </option>
-						<option value = 3 > Pasaporte  </option>
-
-					</select>
-
-				</div>	
-
-			</div>
+	<ons-list>
+    
+    <ons-list-header> Tipo de Documento</ons-list-header>
 
 
+    <ons-list-item tappable>
+      
+      <label class="left">
 
-			<div id="BotonesID" align="right" class="form-group" style="padding-right:550px;">
+        <ons-input name="tipo" type="radio" value="1" input-id="radio-1" checked ></ons-input>
 
-				<div class="col-sm-offset-2 col-sm-10" >
+      </label>
 
-					<input class="btn btn-default"  type="submit" id="IngresarID" value="Ingresar" >
-					<input class="btn btn-default" type="reset" id="ResetID" value="Limpiar" >
+      <label for="radio-2" class="center"> DNI </label>
 
-				</div>
+    </ons-list-item>
 
-			</div>
 
-			</form>
-			
-			</div>
+    <ons-list-item tappable>
+    
+      <label class="left">
 
-<!--
-			<div style="float:left;padding-top:2px" >
+        <ons-input name="tipo" type="radio" value="3" input-id="radio-2"></ons-input>
 
-				<img src="img/BancoDigital.jpeg" class="img-responsive" style="width:400px;opacity:0.8" 
-					 alt="Responsive image">	
+      </label>
+      
+      <label for="radio-1" class="center"> Carnet de Extranjeria </label>
 
-			</div>
+    </ons-list-item>
 
--->
+    <ons-list-item tappable>
+      
+      <label class="left">
 
-</div>
+        <ons-input name="tipo" type="radio" value="5" input-id="radio-3"></ons-input>
+
+      </label>
+
+      <label for="radio-2" class="center"> Pasaporte </label>
+
+    </ons-list-item>
+
+  </ons-list>
+
+	    
+	    <p style="margin-top: 30px;">
+	    
+	      <ons-button id="loginId" > Entrar </ons-button>
+	      <!--<input type="submit" id="LoginId" value="Login" >-->
+	      <ons-button id="resetId" > Limpiar </ons-button>
+	    
+	    </p>
+
+
+	</form>    
+	    
+  </div>
+
+
+
+</ons-page>
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   
 
 		<script type="text/javascript">
 
 			$(document).on( 'ready', function(){
 
-				//$("#UserId").val('');
-				//$("#PassId").val('');
-				document.getElementById("UserId").value="";
-				document.getElementById("PassId").value="";
+				$("#loginId").on("click",function(){
+
+				var usuario = $("#userid").val();
+				var pass = $("#passid").val();
+				var tipodocumento = $('input:radio[name=tipo]:checked').val();
+ 				
+ 				$(".formulario").submit();
+
+				});			
+
+
+				$("#resetId").on("click",function(){
+
+				$("#userid").val('');
+				$("#passid").val('');
+
+
+				});	
+
 
 			}
 			
