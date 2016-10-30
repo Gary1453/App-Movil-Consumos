@@ -34,7 +34,7 @@
 
   <div style="text-align: center; margin-top: 30px;">
 
-  	<form name="formulario" method="POST" action="http://localhost/App Consumos/logica.php?opcion=0">
+  	<form>
     
 	    <p>
 	    
@@ -95,9 +95,9 @@
 	    
 	    <p style="margin-top: 30px;">
 	    
-	      <ons-button id="loginId" > Entrar </ons-button>
+	      <ons-button id="loginid" > Entrar </ons-button>
 	      <!--<input type="submit" id="LoginId" value="Login" >-->
-	      <ons-button id="resetId" > Limpiar </ons-button>
+	      <ons-button id="resetid" > Limpiar </ons-button>
 	    
 	    </p>
 
@@ -112,36 +112,8 @@
 
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   
+		<script type="text/javascript" src="js/login.js"></script>
 
-		<script type="text/javascript">
-
-			$(document).on( 'ready', function(){
-
-				$("#loginId").on("click",function(){
-
-				var usuario = $("#userid").val();
-				var pass = $("#passid").val();
-				var tipodocumento = $('input:radio[name=tipo]:checked').val();
- 				
- 				$(".formulario").submit();
-
-				});			
-
-
-				$("#resetId").on("click",function(){
-
-				$("#userid").val('');
-				$("#passid").val('');
-
-
-				});	
-
-
-			}
-			
-			);
-
-		</script>
 
 	
 
