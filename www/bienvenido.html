@@ -31,12 +31,37 @@
   };
 
   
-  window.fn.load = function(page) 
+  window.fn.load = function(tipo) 
   {
-      var content = document.getElementById('content');
-      var menu = document.getElementById('menu');
-      content.load(page)
-        .then(menu.close.bind(menu));
+  
+    switch( tipo )
+    {
+
+      case "abonos" :
+
+        window.location.href = "gastos_mensuales.html?tipo=ABONOS&familia=";
+
+      break;
+
+      case "abonPlan" :
+
+        window.location.href = "gastos_mensuales.html?tipo=ABONOS_PLANILLA&familia=";
+
+      break;
+
+      case "logout" :
+
+        window.location.href = "http://192.168.1.7:80/App Consumos/logica.php?opcion=10";
+
+      break;          
+
+
+
+    }
+
+     
+
+
   };
 
 /*
