@@ -44,37 +44,37 @@ var lista="";
 	for( var i=0 ; presultado.length ; i++ )
 	{
 	 
-	 lista+="<tr>";
+	 lista+="<ons-row width='50px'>";
 	 
 	 if(tipo != "CARGOS" )
 	 {
 	 
-	 lista+="<td>" + presultado[i].CLIENTEID + "</td>";
+	 lista+="<ons-col>" + presultado[i].CLIENTEID + "</ons-col>";
 
 	 }
 
-	 lista+="<td>" + presultado[i].MESID + "</td>";
-	 lista+="<td>" + presultado[i].FECHA + "</td>";
+	 lista+="<ons-col>" + presultado[i].MESID + "</ons-col>";
+	 lista+="<ons-col>" + presultado[i].FECHA + "</ons-col>";
 
 	 if( tipo == "CARGOS")
 	 {
 
-	 lista+="<td>" + presultado[i].FAMILIA + "</td>";
-	 lista+="<td>" + presultado[i].SUBFAMILIA + "</td>";
+	 lista+="<ons-col>" + presultado[i].FAMILIA + "</ons-col>";
+	 lista+="<ons-col>" + presultado[i].SUBFAMILIA + "</ons-col>";
 
 	 }
 
 	 else
 	 {
 
-	 lista+="<td>" + presultado[i].DESCRIPCION + "</td>";
+	 lista+="<ons-col>" + presultado[i].DESCRIPCION + "</ons-col>";
 
 	 } 
 
-	 lista+="<td>" + presultado[i].PRODUCTO + "</td>";
-	 lista+="<td>" + presultado[i].CANAL + "</td>";
-	 lista+="<td>" + presultado[i].IMPORTESOLES + "</td>";
-	 lista+="</tr>";
+	 lista+="<ons-col>" + presultado[i].PRODUCTO + "</ons-col>";
+	 lista+="<ons-col>" + presultado[i].CANAL + "</ons-col>";
+	 lista+="<ons-col>" + presultado[i].IMPORTESOLES + "</ons-col>";
+	 lista+="</ons-row>";
 
 	 console.log(lista);
 	 $("#gastodId").html(lista);
@@ -89,37 +89,39 @@ var lista="";
 
 function cargDatList()
 {
-	var tipoGastos = "<tr>";
+
+	var tipoGastos = "<b> <ons-row width='50px'>";
 
 	if( tipo != "CARGOS" )
 	{
 		
-		tipoGastos += "<th> Clienteid </th>";
+		tipoGastos += "<ons-col> Clienteid </ons-col>";
 
 
 	}	
 
-	tipoGastos +="<th> MesId </th> <th> Fecha </th>";
+		tipoGastos +="<ons-col> MesId </ons-col> <ons-col> Fecha </ons-col>";
 
 
 	if( tipo == "CARGOS")
 	{
 
-		tipoGastos += "<th> Familia </th><th> SubFamilia </th>";
+		tipoGastos += "<ons-col> Familia </ons-col><ons-col> SubFamilia </ons-col>";
 
 	}
 
 	else
 	{
 
-		tipoGastos += "<th> Descripcion </th>";
+		tipoGastos += "<ons-col> Descripcion </ons-col>";
 
 
 	} 
 
-    tipoGastos += "<th> Producto </th><th> Canal </th><th> ImporteSoles </th>";
+    tipoGastos += "<ons-col> Producto </ons-col> <ons-col> Canal </ons-col><th> ImporteSoles </ons-col>";
 
-	tipoGastos += "</tr>";
+	tipoGastos += "</ons-row> </b>";
+
 
 	$("#tipoGastos").html(tipoGastos);
 

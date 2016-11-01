@@ -12,161 +12,35 @@
     <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script>
-
-        ons.ready(function() {
-            
-
-            console.log("Onsen UI is ready!");
-
-            window.fn = {};
-
-            window.fn.open = function() 
-            {
-
-            var menu = document.getElementById('menu');
-            menu.open();
-
-            };
-
-
-              window.fn.load = function(page) 
-              {
-
-              var content = document.getElementById('content');
-              var menu = document.getElementById('menu');
-              content.load(page)
-              .then(menu.close.bind(menu));
-
-              };
-
-
-
-        });
-
-
-
-
-
-
-
-
-
-    </script>
 </head>
 <body>
+    <ons-row>
+  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+  <ons-col><b>Text </b></ons-col>
+  <ons-col><b>Text1 </b></ons-col>
+  <ons-col><b>Text </b></ons-col>
+  <ons-col><b>Text3 </b></ons-col>
+  <ons-col><b>Text4 </b></ons-col>
+</ons-row>
 
-<!--
-    <ons-tabbar>
-      <ons-tab label="Tab 1" page="tab1.html" active>
-      </ons-tab>
-      <ons-tab label="Tab 2" page="tab2.html">
-      </ons-tab>
-    </ons-tabbar>
+    <ons-row>
+  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+  <ons-col>Text</ons-col>
+  <ons-col>Text1</ons-col>
+  <ons-col>Text</ons-col>
+  <ons-col>Text3</ons-col>
+  <ons-col>ESte es un texto bn largo , inusual </ons-col>
+</ons-row>
 
-    <ons-template id="tab1.html">
-      <ons-page>
-        <ons-toolbar>
-          <div class="center">Tab 1</div>
-        </ons-toolbar>
+    <ons-row>
+  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+  <ons-col>Text</ons-col>
+  <ons-col>Text1</ons-col>
+  <ons-col>Text</ons-col>
+  <ons-col>Text3</ons-col>
+  <ons-col>ESte es un texto bn largo , inusual </ons-col>
+</ons-row>
 
-        <p style="text-align: center;"> This is the first page. </p>
-      </ons-page>
-    </ons-template>
-
-    <ons-template id="tab2.html">
-
-      <ons-page>
-        <ons-toolbar>
-          <div class="center">Tab 2</div>
-        </ons-toolbar>
-
-        <p style="text-align: center;">
-          This is the second page.
-        </p>
-      </ons-page>
-
-    </ons-template>
-
--->
-
-<ons-splitter>
-
-  <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
-
-    <ons-page>
-
-        <ons-list>
-
-          <ons-list-item onclick="fn.load('home.html')" tappable>
-            Home
-          </ons-list-item>
-
-          <ons-list-item onclick="fn.load('abonPlan.html')" tappable>
-            Abonos Planilla
-          </ons-list-item>
-
-          <ons-list-item onclick="fn.load('abonos.html')" tappable>
-            Abonos
-          </ons-list-item>
-
-        </ons-list>
-
-    </ons-page>
-
-  </ons-splitter-side>
-
-  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-
-</ons-splitter>
-
-<ons-template id="home.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-        Bienvenido
-      </div>
-    </ons-toolbar>
-    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
-      Swipe right to open the menu!
-    </p>
-  </ons-page>
-</ons-template>
-
-<ons-template id="abonPlan.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-        Abonos Planilla
-      </div>
-    </ons-toolbar>
-  </ons-page>
-</ons-template>
-
-<ons-template id="abonos.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-        Abonos
-      </div>
-    </ons-toolbar>
-  </ons-page>
-</ons-template>
 
 </body>
 </html>

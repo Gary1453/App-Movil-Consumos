@@ -7,6 +7,16 @@
 
         
         <meta charset=”utf8”>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+        <script src="components/loader.js"></script>
+        <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+        <link rel="stylesheet" href="components/loader.css">
+        <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+        <link rel="stylesheet" href="css/style.css">
+
         <title> Login Bank </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -15,56 +25,75 @@
 
 
 <body>
-<div class="container-fluid" > 
-
-    <header>
 
 
-    </header>
+<ons-tabbar>
 
-    
-    <div>
-    
-        <h2 align="center" >  Distribucion de los ultimos 6 meses  </h2>
-        <div id="columnbar" align="center"></div>
+  <ons-tab label="Distribucion de los ultimos 6 meses" page="distribucion.html"  active > </ons-tab>
+  <ons-tab label="Gastos del ultimo mes" page="detalle.html"  > </ons-tab>
+  
 
-    </div>
-
-<article>
+</ons-tabbar>
 
 
-<h2 align="center" >  Gastos del Ultimo Mes </h2>
+<ons-template id="distribucion.html">
 
-    <table border="1" style="width:500px" align="center" class="table table-striped">
-
-    <thead id="tipoGastos">
-
-    </thead>
-
-    <tbody id="gastodId" ></tbody>
-
-    <tfoot></tfoot>
-
-    </table>
-
-
+<ons-page>
     
 
-</article>
+    <ons-toolbar>
 
+        <div class="right">
 
-    <footer>
-        
-        <div align="right" style="padding-top:100px;padding-right: 200px;">
+            <ons-toolbar-button>
 
-            <button class="btn btn-default" type="button" align="right"  id="regresarId" 
-            name="regresar" > Regresar 
-            </button>
+              <ons-icon icon="md-home" id="regresarId" ></ons-icon>
+
+            </ons-toolbar-button>
 
         </div>
+
+
+        <div class="center"> Distribucion de los ultimos 6 meses </div>
+
+    </ons-toolbar>
+
+    
+    <div id="columnbar" align="center"></div>
+
+</ons-page>
+</ons-template>
+
+
+<ons-template id="detalle.html">
+
+<ons-page>
     
 
-    </footer>
+    <ons-toolbar>
+
+        <div class="right">
+
+            <ons-toolbar-button>
+
+              <ons-icon icon="md-home" id="regresarId" ></ons-icon>
+
+            </ons-toolbar-button>
+
+        </div>
+
+
+        <div class="center"> Gastos del ultimo mes </div>
+
+    </ons-toolbar>
+
+    <div id="tipoGastos"></div>
+    <div id="gastodId"></div>
+
+
+</ons-page>
+
+</ons-template>
 
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   

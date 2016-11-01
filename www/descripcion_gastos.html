@@ -6,52 +6,51 @@
 	<head>
 
 	        
-    <meta charset=”utf8”>
-    <title> Login Bank </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<meta charset=”utf8”>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<script src="components/loader.js"></script>
+	<script src="lib/onsenui/js/onsenui.min.js"></script>
+
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title> Login Bank </title>	
 
 	</head>
 
 
 	<body>
-	<div class="container-fluid">
 
-<article>
+	<ons-page>
+		
 
-		<header></header>
+		<ons-toolbar>
+
+	        <div class="right">
+
+	            <ons-toolbar-button>
+
+	              <ons-icon icon="md-home" id="regresarId" ></ons-icon>
+
+	            </ons-toolbar-button>
+
+	        </div>
 
 
-			<h2 align="center"> Detalle de gastos </h2>
+	        <div class="center"> Detalle de gastos </div>
 
-			<table border="1" style="width:800px" align="center" class="table table-striped" >
+	    </ons-toolbar>
 
-				<thead id="tipoGastos">
-				</thead>
+	    <div id="tipoGastos"></div>
+<div id="gastodId"></div>
 
-				<tbody id="gastodId" ></tbody>
-				<tfoot></tfoot>
-
-			</table>
-
-</article>
-
-			<footer>
-				
-				<div align="right" style="padding-top:100px;padding-right: 200px;" >
- 				
-	 				<button class="btn btn-default" type="button" align="center"  id="regresarId" 
-	 						name="regresar" > Regresar 
-	 				</button>
-
- 				</div>
-
-			</footer>
-
-		  
+	</ons-page>
+	  
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   
 		<script type="text/javascript" src="js/descripcion_gastos.js" ></script>
 
-	</div>
 	</body>
 
 

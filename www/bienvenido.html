@@ -20,6 +20,38 @@
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<script >
+  
+  window.fn = {};
+
+  window.fn.open = function() 
+  {
+      var menu = document.getElementById('menu');
+      menu.open();
+  };
+
+  
+  window.fn.load = function(page) 
+  {
+      var content = document.getElementById('content');
+      var menu = document.getElementById('menu');
+      content.load(page)
+        .then(menu.close.bind(menu));
+  };
+
+/*
+  window.fn.load = function(page) 
+  {
+      var content = document.getElementById('content');
+      var menu = document.getElementById('menu');
+      content.load(page)
+        .then(menu.close.bind(menu));
+  }; */
+
+
+
+
+</script>
 
 
 </head>
@@ -28,71 +60,47 @@
 <body>
 
 
-<!--
-<div >
-<header align="center">
-<nav class="navbar navbar-default" role="navigation" >
 
-  <div class="navbar-header">
+ <ons-navigator id="myNavigator" page="splitter.html"> </ons-navigator>
 
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-ex1-collapse">
+  <ons-template id="splitter.html">
 
-      <span class="sr-only">Desplegar navegación</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+    <ons-splitter>
 
-    </button>
+      <ons-splitter-side  id="menu" swipeable width="250px" collapse swipe-target-width="50px">
 
-    <a class="navbar-brand" href="#">Login Bank</a>
+          <ons-page>
 
-  </div>
- 
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    
-    <ul class="nav navbar-nav">
+              <ons-list>
 
-      <li class="active">
+                <ons-list-item onclick="fn.load('abonPlan')" tappable>
+                  Abonos Planilla
+                </ons-list-item>
 
-     	 <a href="gastos_mensuales.html?tipo=ABONOS&familia=" > 
-        
-         Abonos
-        
-         </a> 
+                <ons-list-item onclick="fn.load('abonos')" tappable>
+                  Abonos
+                </ons-list-item>
 
-      </li>
+                <ons-list-item onclick="fn.load('logout')" tappable>
+                  Logout
+                </ons-list-item>
+
+
+              </ons-list>
+
+          </ons-page>
+
+      </ons-splitter-side>
       
-      <li>
-      
-      	<a href="gastos_mensuales.html?tipo=ABONOS_PLANILLA&familia=" > 
-        
-        Abonos Planilla
-        
-        </a> 
+      <ons-splitter-content page="bienvenido.html"></ons-splitter-content>
 
-      </li>
+    </ons-splitter>
 
-      <li>  <a href="#" > Productos </a> </li>  
-
-      <li> 
-
-        <a href="http://192.168.1.7:80/App Consumos/logica.php?opcion=10" > Logout </a> 
-
-      </li>
-
-      
-  
-    </ul>
-
-  </div>
-
-</nav>
-
-</header> -->
+  </ons-template>
 
 
 
+<ons-template id="bienvenido.html">
 <ons-tabbar>
 
   <ons-tab label="Tipos de Gastos" page="Column.html"  active > </ons-tab>
@@ -100,7 +108,7 @@
   
 
 </ons-tabbar>
-
+</ons-template>
 
 <!-- Column Chart -->
 
@@ -110,6 +118,16 @@
 
       <ons-toolbar>
         
+        <div class="left">
+
+            <ons-toolbar-button onclick="fn.open()">
+
+              <ons-icon icon="md-menu"></ons-icon>
+
+            </ons-toolbar-button>
+
+        </div>
+
         <div class="center"> Tipos de Gastos </div>        
 
       </ons-toolbar>
@@ -129,8 +147,18 @@
   <ons-page>
 
       <ons-toolbar>
+
+        <div class="left">
+
+            <ons-toolbar-button onclick="fn.open()">
+
+              <ons-icon icon="md-menu"></ons-icon>
+
+            </ons-toolbar-button>
+
+        </div>
         
-      <div class="center"> Gastos por Familia</div>
+        <div class="center"> Gastos por Familia</div>
 
       </ons-toolbar>
 
@@ -140,14 +168,7 @@
 
 </ons-template>
 
-<!--
 
-	<div id="piechart" align="center"  ></div>
-	<div id="columnchart_material" align="center" ></div>
-
--->
-
-	<footer> </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   
 <script type="text/javascript" src="js/bienvenido.js"></script>
