@@ -18,6 +18,8 @@ google.charts.setOnLoadCallback( function(){
 	{
 
 	drawChart(arreglo);
+	$("#ProgBarrId").hide();
+	$("#ProgCirId").hide();
 
 	}, 2000); 
 
@@ -33,6 +35,15 @@ $("#regresarId").on("click",function(){
 
 });
 
+//Ocultar Dialogos
+
+$("#dialog-1").on("click",function(){
+
+	$("#dialog-1").hide();
+	window.location.href = "bienvenido.html";
+
+
+});
 
 });
 
@@ -99,10 +110,13 @@ function cargarArreglo()
 	var opcion ={"CARGOS" : 3  , "ABONOS": 6 , "ABONOS_PLANILLA": 8 };
 	var url1 = url + "?opcion=" +  opcion[tipo] + "&familia=" + familia + "&callback=?";
     var arreglo = [ [ "MesId" , "ImporteSoles" ] ];
-    
+
+
+    alert(url1);
     var prueba = $.getJSON( url1, function(presultado)
     {                
-    	
+    	//window.location.href=url1;
+
 		for(i=0 ; i< presultado.length ; i++)
 		{
  			
@@ -110,12 +124,16 @@ function cargarArreglo()
 
 		}			
 
+
 		if( arreglo.length == 1 )
 		{
 
 			arreglo.push(0,0);
-			alert('Usted no presenta con este tipo de transacciones en el ultimo semestre');
-			window.location.href = "bienvenido.html";
+			$("#dialog-1").show();
+			//alert('Usted no presenta con este tipo de transacciones en el ultimo semestre');
+			//window.location.href = "bienvenido.html";
+			
+			
 
 
 		}	

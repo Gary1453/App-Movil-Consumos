@@ -4,6 +4,10 @@
 		var urlSearch = window.location.search;
 		var nombre = urlSearch.substring( urlSearch.indexOf('=') + 1 , urlSearch.indexOf('&') );
 		var clienteid = urlSearch.substring( urlSearch.lastIndexOf( '=' ) + 1 , urlSearch.length );
+		var ancho = screen.width;
+		var alto = screen.height;
+		console.log("ancho : " + ancho );
+		console.log("alto : " + alto );
 				
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.load('current', {'packages':['bar']});
@@ -31,6 +35,8 @@
 
 			width: 500,
 			height: 300, 
+			//width: ancho * 0.72,
+			//height: alto * 0.78,
 			title: 'Mis Consumos Diarios',
 			is3D: true
 
@@ -44,6 +50,8 @@
 			{
 				width:500,
 				height:300,
+				//width: ancho * 0.72,
+				//height: alto * 0.70,
 				chart: 
 				{
 				title: 'Cargos y Abonos',
@@ -56,9 +64,11 @@
 			setTimeout(function()
 			{
 
+
 				drawChart( arreglo_pie , 'piechart' , options_pie , 'pie' );
 				drawChart( arreglo_bar ,'columnchart_material', options_bar , 'bar' );
-
+				$("#ProgBarrId").hide();
+				$("#ProgCirId").hide();
 
 			},2000);
 
@@ -138,12 +148,8 @@ function cargarArreglo( tipo , url )
 	    var arreglo=[ ['MesId', 'Cargos' , 'Abonos' ] ];
 	}
 						  		  	
-    console.log("llego aca");
     var prueba = $.getJSON( url, function(presultado)
     {                
-
-	console.log(presultado);
-	console.log("llego aca");
 
 	for(i=0 ; i< presultado.length ; i++)
 	{
@@ -161,8 +167,7 @@ function cargarArreglo( tipo , url )
 	}			
 
     });
-
-console.log(arreglo);			  
+			  
 return arreglo;				  
 
 }

@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="css/style.css">
 
         <title> Login Bank </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >-->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
@@ -29,8 +29,10 @@
 
 <ons-tabbar>
 
-  <ons-tab label="Distribucion de los ultimos 6 meses" page="distribucion.html"  active > </ons-tab>
-  <ons-tab label="Gastos del ultimo mes" page="detalle.html"  > </ons-tab>
+  <!--<ons-tab label="Distribucion de los ultimos 6 meses" page="distribucion.html"  active > </ons-tab>
+  <ons-tab label="Gastos del ultimo mes" page="detalle.html"  > </ons-tab>-->
+  <ons-tab label="Distribucion" page="distribucion.html"  active > </ons-tab>
+  <ons-tab label="Gastos" page="detalle.html"  > </ons-tab>
   
 
 </ons-tabbar>
@@ -57,8 +59,29 @@
         <div class="center"> Distribucion de los ultimos 6 meses </div>
 
     </ons-toolbar>
+  
+    <div align="center">
+      
+      <ons-progress-bar id="ProgBarrId" indeterminate></ons-progress-bar>
+      <ons-progress-circular style="padding-top: 200px" id="ProgCirId" align="center" indeterminate></ons-progress-circular>
+      
+    </div>
 
-    
+    <ons-dialog id="dialog-1">
+
+        <div style="text-align: center; padding: 10px;">
+          <p>
+            Usted no presenta con este tipo de transacciones en el ultimo semestre
+          <p>
+
+          <p>
+            <ons-button onclick="hideDialog('dialog-1')">Close</ons-button>
+          </p>
+
+        </div>
+
+    </ons-dialog>
+
     <div id="columnbar" align="center"></div>
 
 </ons-page>
@@ -86,6 +109,7 @@
         <div class="center"> Gastos del ultimo mes </div>
 
     </ons-toolbar>
+
 
     <div id="tipoGastos"></div>
     <div id="gastodId"></div>

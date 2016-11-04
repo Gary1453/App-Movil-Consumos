@@ -55,25 +55,9 @@
 
       break;          
 
-
-
     }
-
-     
-
-
+  
   };
-
-/*
-  window.fn.load = function(page) 
-  {
-      var content = document.getElementById('content');
-      var menu = document.getElementById('menu');
-      content.load(page)
-        .then(menu.close.bind(menu));
-  }; */
-
-
 
 
 </script>
@@ -153,10 +137,18 @@
 
         </div>
 
-        <div class="center"> Tipos de Gastos </div>        
+
+        <div class="center"> Tipos de Gastos </div>                
 
       </ons-toolbar>
 
+      <!--<ons-progress-bar id="progresoId" indeterminate></ons-progress-bar>-->
+      <div align="center">
+      
+      <ons-progress-bar id="ProgBarrId" indeterminate></ons-progress-bar>
+      <ons-progress-circular style="padding-top: 200px" id="ProgCirId" align="center" indeterminate></ons-progress-circular>
+      
+      </div>
       
       <div id="columnchart_material" align="center" style="padding-top: 50px;"></div>
 

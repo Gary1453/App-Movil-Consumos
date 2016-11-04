@@ -33,7 +33,7 @@
  					if( data.exito == "OK" )
  					{
 
- 						window.location.href = "http://127.0.0.1:8000/bienvenido.html?nombre=" + data.nombre + 
+ 						window.location.href = "http://192.168.1.7:8000/bienvenido.html?nombre=" + data.nombre + 
  												"&clienteid=" + data.clienteid;
 
  					}

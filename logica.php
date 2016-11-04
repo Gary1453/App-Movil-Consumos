@@ -277,8 +277,8 @@ switch ($opcion) {
 					Con.Tipo,
 					Con.Familia,
 					Con.SubFamilia,
-					Con.Producto,
-					Con.Canal,
+					nvl( Con.Producto , '-') as Producto,
+					nvl( Con.Canal , '-' ) as Canal,
 					Con.ImporteSoles
 
 					from 

@@ -16,7 +16,7 @@ $(document).on('ready',function(){
 	var opcion ={"CARGOS" : 5  , "ABONOS": 7 , "ABONOS_PLANILLA": 9 };
 	url = url + "?opcion=" + opcion[tipo] + "&mesid=" + mesid + "&familia=" + familia + "&callback=?";
 
-	var inicio = $.getJSON( url , cargarLista );  
+	var inicio = $.getJSON( url , cargarLista );	
 
 
 //Manipulacion de eventos
@@ -76,8 +76,10 @@ var lista="";
 	 lista+="<ons-col>" + presultado[i].IMPORTESOLES + "</ons-col>";
 	 lista+="</ons-row>";
 
-	 console.log(lista);
+
 	 $("#gastodId").html(lista);
+	 $("#ProgBarrId").hide();
+	 $("#ProgCirId").hide(); 
 
 
 	}
