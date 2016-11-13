@@ -44,8 +44,10 @@
 
 			//Cargamos el grafico Bar
 
-			var url_bar = url + "?opcion=2&clienteid=" + localStorage.getItem("clienteid") +"&callback=?"; 
+			var url_bar = url + "?opcion=2&clienteid=" + sessionStorage.getItem("clienteid") +"&callback=?"; 
 			var arreglo_bar = cargarArreglo( 'bar' , url_bar );
+			console.log(url_bar);
+			console.log(arreglo_bar);
 			var options_bar = 
 			{
 				width:500,
@@ -118,7 +120,8 @@ if( tipo == 'pie' )
 		if (selectedItem) 
 		{
 			var familia = data.getValue(selectedItem.row, 0);
-			window.location.href="gastos_mensuales.html?" + "tipo=CARGOS" + "&familia=" + familia;
+			window.location.href ="gastos_mensuales.html?" + "tipo=CARGOS" + "&familia=" + familia + "&clienteid=" 
+								 + sessionStorage.getItem("clienteid");
 
 		}
 

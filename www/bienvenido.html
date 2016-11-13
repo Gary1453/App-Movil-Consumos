@@ -21,7 +21,18 @@
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script >
-  
+
+  var urlSearch = window.location.search;
+  var clienteid = urlSearch.substring( urlSearch.lastIndexOf( '=' ) + 1 , urlSearch.length );
+
+  if( clienteid.trim() != "" )
+  {
+
+    sessionStorage.setItem( "clienteid" , clienteid );
+
+
+  }
+
   window.fn = {};
 
   window.fn.open = function() 
@@ -39,13 +50,15 @@
 
       case "abonos" :
 
-        window.location.href = "gastos_mensuales.html?tipo=ABONOS&familia=";
+        window.location.href = "gastos_mensuales.html?tipo=ABONOS&familia=&clienteid=" 
+                             + sessionStorage.getItem("clienteid");
 
       break;
 
       case "abonPlan" :
 
-        window.location.href = "gastos_mensuales.html?tipo=ABONOS_PLANILLA&familia=";
+        window.location.href = "gastos_mensuales.html?tipo=ABONOS_PLANILLA&familia=&clienteid=" 
+                             + sessionStorage.getItem("clienteid");
 
       break;
 
@@ -112,7 +125,7 @@
 <ons-template id="bienvenido.html">
 <ons-tabbar>
 
-  <ons-tab label="Tipos de Gastos" page="Column.html"  active > </ons-tab>
+  <ons-tab label="Tipos de Gastos" page="Column.html"   active> </ons-tab>
   <ons-tab label="Gastos por Familia" page="Pie.html"  > </ons-tab>
   
 

@@ -98,7 +98,7 @@ switch ($opcion) {
 			//http://localhost/App Consumos.php?opcion=1&callback=?
 			session_start();
 			$clienteid = $_GET['clienteid'];
-			$_SESSION['clienteid'] = $clienteid;
+			//$_SESSION['clienteid'] = $clienteid;
 			$conn=oci_connect("natan","nisekoi","localhost/XE");												
 
 			$sql = "
@@ -150,7 +150,7 @@ switch ($opcion) {
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
 			$clienteid = $_GET['clienteid'];
-			$_SESSION['clienteid'] = $clienteid;
+			//$_SESSION['clienteid'] = $clienteid;
 			$sql = "
 					Select
 					*
@@ -212,7 +212,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];			
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$familia = $_GET['familia'];
 
 			$sql = "
@@ -266,7 +267,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$familia = $_GET['familia'];
 			$sql = "
 					Select 
@@ -320,7 +322,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$familia = $_GET['familia'];
 			$mesid=$_GET['mesid'];
 			$sql = "
@@ -376,8 +379,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
-
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$sql = "
 
 						Select 
@@ -429,7 +432,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$mesid = $_GET['mesid'];
 			$sql = "
 						Select 
@@ -484,7 +488,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$sql = "
 						Select 
 
@@ -535,7 +540,8 @@ switch ($opcion) {
 			
 			$conn=oci_connect("natan","nisekoi","localhost/XE");
 			session_start();
-			$clienteid = $_SESSION['clienteid'];
+			//$clienteid = $_SESSION['clienteid'];
+			$clienteid = $_GET['clienteid'];
 			$mesid = $_GET['mesid'];
 			$sql = "
 						Select 

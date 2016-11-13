@@ -3,8 +3,10 @@
 
 var urlSearch = window.location.search;
 var tipo = urlSearch.substring( urlSearch.indexOf('=') +1 , urlSearch.indexOf('&') );
-var familia = urlSearch.substring( urlSearch.lastIndexOf( '=' ) + 1 , urlSearch.length );	
+var clienteid = urlSearch.substring( urlSearch.lastIndexOf( '=' ) + 1 , urlSearch.length );	
+var familia = urlSearch.substring( urlSearch.lastIndexOf( 'familia' ) + 8 , urlSearch.lastIndexOf( 'clienteid' ) -1 );	
 var url = "http://192.168.1.7:80/App Consumos/logica.php";
+
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback( function(){
@@ -74,7 +76,8 @@ var chart = new google.visualization.ColumnChart(document.getElementById('column
 		{
 			var mesid = data.getValue(selectedItem.row, 0);
 			var url = "descripcion_gastos.html";		 	
-		 	window.location.href= url + "?familia=" + familia + "&mesid=" + mesid + "&tipo=" + tipo;
+		 	window.location.href = url + "?familia=" + familia + "&mesid=" + mesid + "&tipo=" + tipo 
+		 						 + "&clienteid=" + clienteid;
 			
 
 		}
@@ -94,7 +97,7 @@ function cargarGastos()
 {
 	
 	var opcion ={"CARGOS" : 5  , "ABONOS": 7 , "ABONOS_PLANILLA": 9 };
-	url = url + "?opcion=" + opcion[tipo] + "&familia=" + familia + "&mesid=" + "201606" + "&callback=?";
+	url = url + "?opcion=" + opcion[tipo] + "&familia=" + familia + "&mesid=" + "201606" + "&clienteid=" + clienteid + "&callback=?";
 	var inicio = $.getJSON( url , cargGasUltMes);
 
 
@@ -108,14 +111,15 @@ function cargarArreglo()
 {
 
 	var opcion ={"CARGOS" : 3  , "ABONOS": 6 , "ABONOS_PLANILLA": 8 };
-	var url1 = url + "?opcion=" +  opcion[tipo] + "&familia=" + familia + "&callback=?";
+	var url1 = url + "?opcion=" +  opcion[tipo] + "&familia=" + familia + "&clienteid=" + clienteid + "&callback=?";
     var arreglo = [ [ "MesId" , "ImporteSoles" ] ];
 
 
-    alert(url1);
+    //alert(url1);
     var prueba = $.getJSON( url1, function(presultado)
     {                
     	//window.location.href=url1;
+    	//var prueba=presultado;
 
 		for(i=0 ; i< presultado.length ; i++)
 		{
@@ -132,11 +136,12 @@ function cargarArreglo()
 			$("#dialog-1").show();
 			//alert('Usted no presenta con este tipo de transacciones en el ultimo semestre');
 			//window.location.href = "bienvenido.html";
-			
-			
+						
 
 
-		}	
+		}
+
+		//alert(prueba);	
 
     });
 		  
@@ -157,21 +162,21 @@ function cargGasUltMes(presultado)
 	 
 		 lista+="<ons-row width='50px'>";
 		 
+		 /*
 		 if(tipo != "CARGOS" )
 		 {
 		 
-		 	lista+="<ons-col>" + presultado[i].CLIENTEID + "</ons-col>";
+		 	lista+="<ons-col align='center'>" + presultado[i].CLIENTEID + "</ons-col>";
 
-		 }
+		 }*/
 
-		 lista+="<ons-col>" + presultado[i].MESID + "</ons-col>";
-		 lista+="<ons-col>" + presultado[i].FECHA + "</ons-col>";
+		 lista+="<ons-col align='center'>" + presultado[i].FECHA + "</ons-col>";
 
 		 if( tipo == "CARGOS")
 		 {
 
-			 lista+="<ons-col>" + presultado[i].FAMILIA + "</ons-col>";
-			 lista+="<ons-col>" + presultado[i].SUBFAMILIA + "</ons-col>";
+			 lista+="<ons-col align='center'>" + presultado[i].FAMILIA + "</ons-col>";
+			 //lista+="<ons-col align='center'>" + presultado[i].SUBFAMILIA + "</ons-col>";
 
 		 }
 
@@ -182,9 +187,8 @@ function cargGasUltMes(presultado)
 
 		 } 
 
-		 lista+="<ons-col>" + presultado[i].PRODUCTO + "</ons-col>";
-		 lista+="<ons-col>" + presultado[i].CANAL + "</ons-col>";
-		 lista+="<ons-col>" + presultado[i].IMPORTESOLES + "</ons-col>";
+		 lista+="<ons-col align='center'>" + presultado[i].CANAL + "</ons-col>";
+		 lista+="<ons-col align='center'>" + presultado[i].IMPORTESOLES + "</ons-col>";
 		 lista+="</ons-row>";
 
 		 console.log(lista);
@@ -203,33 +207,38 @@ function cargDatList()
 
 	var tipoGastos = "<b> <ons-row width='50px'>";
 
+/*
 	if( tipo != "CARGOS" )
 	{
 		
-		tipoGastos += "<ons-col> Clienteid </ons-col>";
+		tipoGastos += "<ons-col align='center'> Clienteid </ons-col>";
 
 
 	}	
-
-		tipoGastos +="<ons-col> MesId </ons-col> <ons-col> Fecha </ons-col>";
+*/
+		//tipoGastos +="<ons-col> MesId </ons-col> <ons-col> Fecha </ons-col>";
+		tipoGastos +="<ons-col align='center'> Fecha </ons-col>";
 
 
 	if( tipo == "CARGOS")
 	{
 
-		tipoGastos += "<ons-col> Familia </ons-col><ons-col> SubFamilia </ons-col>";
+		tipoGastos += "<ons-col align='center' > Familia </ons-col>";
+		//tipoGastos += "<ons-col align='center' > SubFamilia </ons-col>";
 
 	}
 
 	else
 	{
 
-		tipoGastos += "<ons-col> Descripcion </ons-col>";
+		tipoGastos += "<ons-col align='center'> Descripcion </ons-col>";
 
 
 	} 
 
-    tipoGastos += "<ons-col> Producto </ons-col> <ons-col> Canal </ons-col><th> ImporteSoles </ons-col>";
+    //tipoGastos += "<ons-col align='center'>  Producto </ons-col>";
+    tipoGastos +="<ons-col align='center'>  Canal </ons-col>";
+    tipoGastos += "<ons-col align='center'>  ImporteSoles </ons-col>";
 
 	tipoGastos += "</ons-row> </b>";
 
